@@ -1,0 +1,38 @@
+{
+  "account": {
+    "accountOverviewSlug": "/customer/account/",
+    "addressBookSlug": "/customer/address",
+    "addressIndexSlug": "/customer/address/index",
+    "addressNewSlug": "customer/address/new",
+    "accountEditSlug": "/customer/account/edit/",
+    "changePasswordSlug": "/customer/account/edit/changepass/1/",
+    "createAccountSlug": "/customer/account/create",
+    "loginSlug": "/customer/account/login",
+    "orderHistorySlug": "/sales/order/history/"
+  },
+  "cart": {
+    "cartProductChangeSlug": "/cart/configure/",
+    "cartSlug": "/checkout/cart/"
+  },
+  "categoryPage": {
+    "categorySlug": "/women.html"
+  },
+  "checkout": {
+    "checkoutSlug": "/checkout/"
+  },
+  "contact": {
+    "contactSlug": "/contact"
+  },
+  "productpage": {
+    "configurableProductSlug": "/inez-full-zip-jacket.html",
+    "productComparisonSlug": "/catalog/product_compare/index/",
+    "secondSimpleProductSlug": "/aim-analog-watch.html",
+    "simpleProductSlug": "/push-it-messenger-bag.html"
+  },
+  "search": {
+    "resultsSlug": "/catalogsearch/result/"
+  },
+  "wishlist": {
+    "wishListRegex": ".*wishlist.*"
+  }
+}
