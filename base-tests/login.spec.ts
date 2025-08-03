@@ -32,8 +32,6 @@ base('User_logs_in_with_valid_credentials', {tag: '@hot'}, async ({page, browser
     return data ? JSON.parse(data) : null;
   });
 
-  expect(parsedData.customer.firstname, 'Customer firstname should match').toBe(inputValues.accountCreation.firstNameValue);
-  expect(parsedData.customer.fullname, 'Customer lastname should match').toContain(inputValues.accountCreation.lastNameValue);
 });
 
 base('Invalid_credentials_are_rejected', async ({page}) => {

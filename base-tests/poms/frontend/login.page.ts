@@ -1,7 +1,7 @@
 // @ts-check
-
 import { expect, type Locator, type Page } from '@playwright/test';
-import { UIReference, slugs } from '@config';
+import { slugs } from '@config';
+import MainmenuPage from '@poms/frontend/mainmenu.page';
 
 class LoginPage {
   readonly page: Page;
@@ -11,21 +11,25 @@ class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.loginEmailField = page.getByLabel(UIReference.credentials.emailFieldLabel, {exact: true});
-    this.loginPasswordField = page.getByLabel(UIReference.credentials.passwordFieldLabel, {exact: true});
-    this.loginButton = page.getByRole('button', { name: UIReference.credentials.loginButtonLabel });
+
+    this.loginEmailField = page.getByPlaceholder('Email');
+    this.loginPasswordField = page.getByPlaceholder('Password');
+
+    this.loginButton = page.getByRole('button', { name: /login/i });
   }
 
-  async login(email: string, password: string){
+  async login(email: string, password: string) {
     await this.page.goto(slugs.account.loginSlug);
+
     await this.loginEmailField.fill(email);
     await this.loginPasswordField.fill(password);
-    // usage of .press("Enter") to prevent webkit issues with button.click();
+
     await this.loginButton.press("Enter");
   }
 
   async loginExpectError(email: string, password: string, errorMessage: string) {
     await this.page.goto(slugs.account.loginSlug);
+
     await this.loginEmailField.fill(email);
     await this.loginPasswordField.fill(password);
     await this.loginButton.press('Enter');
