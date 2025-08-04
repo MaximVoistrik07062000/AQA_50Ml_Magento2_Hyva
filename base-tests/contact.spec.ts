@@ -13,7 +13,10 @@ import ContactPage from '@poms/frontend/contact.page';
  *  @then I should see a notification my message has been sent
  *  @and the fields should be empty again.
  */
-test('Send_message_through_contact_form',{ tag: ['@contact-form', '@cold']}, async ({page}) => {
+test('Send_message_through_contact_form', { tag: ['@contact-form', '@cold'] }, async ({ page }) => {
   const contactPage = new ContactPage(page);
+
+  await page.goto('/contact');
+  await page.waitForSelector('#contact-form', { state: 'visible' });
   await contactPage.fillOutForm();
 });
