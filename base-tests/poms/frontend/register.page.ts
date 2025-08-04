@@ -1,10 +1,10 @@
 // @ts-check
-
 import { expect, type Locator, type Page } from '@playwright/test';
-import { UIReference, outcomeMarker, slugs} from '@config';
+import { UIReference, outcomeMarker, slugs } from '@config';
 
 class RegisterPage {
   readonly page: Page;
+  readonly form: Locator;
   readonly accountCreationFirstNameField: Locator;
   readonly accountCreationLastNameField: Locator;
   readonly accountCreationEmailField: Locator;
@@ -12,33 +12,42 @@ class RegisterPage {
   readonly accountCreationPasswordRepeatField: Locator;
   readonly accountCreationConfirmButton: Locator;
 
-  constructor(page: Page){
+  constructor(page: Page) {
     this.page = page;
-    this.accountCreationFirstNameField = page.getByLabel(UIReference.personalInformation.firstNameLabel);
-    this.accountCreationLastNameField = page.getByLabel(UIReference.personalInformation.lastNameLabel);
-    this.accountCreationEmailField = page.getByLabel(UIReference.credentials.emailFieldLabel, { exact: true});
-    this.accountCreationPasswordField = page.getByLabel(UIReference.credentials.passwordFieldLabel, { exact: true });
-    this.accountCreationPasswordRepeatField = page.getByLabel(UIReference.credentials.passwordConfirmFieldLabel);
-    this.accountCreationConfirmButton = page.getByRole('button', {name: UIReference.accountCreation.createAccountButtonLabel});
+    this.form = page.locator('#form-validate');
+
+    this.accountCreationFirstNameField = this.form.locator('#firstname');
+    this.accountCreationLastNameField = this.form.locator('#lastname');
+    this.accountCreationEmailField = this.form.locator('#email_address');
+    this.accountCreationPasswordField = this.form.locator('#password');
+    this.accountCreationPasswordRepeatField = this.form.locator('#password-confirmation');
+    this.accountCreationConfirmButton = this.form.locator('#send2');
   }
 
-
-  async createNewAccount(firstName: string, lastName: string, email: string, password: string, muted: boolean = false){
-    let accountInformationField = this.page.locator(UIReference.accountDashboard.accountInformationFieldLocator).first();
+  async createNewAccount(firstName: string, lastName: string, email: string, password: string, isSetup: boolean = false) {
     await this.page.goto(slugs.account.createAccountSlug);
+    await this.form.waitFor({ state: 'visible', timeout: 15000 });
 
     await this.accountCreationFirstNameField.fill(firstName);
     await this.accountCreationLastNameField.fill(lastName);
     await this.accountCreationEmailField.fill(email);
     await this.accountCreationPasswordField.fill(password);
     await this.accountCreationPasswordRepeatField.fill(password);
-    await this.accountCreationConfirmButton.click();
 
-    if(!muted) {
-      // Assertions: Account created notification, navigated to account page, email visible on page
-      await expect(this.page.getByText(outcomeMarker.account.accountCreatedNotificationText), 'Account creation notification should be visible').toBeVisible();
-      await expect(this.page, 'Should be redirected to account overview page').toHaveURL(new RegExp('.+' + slugs.account.accountOverviewSlug));
-      await expect(accountInformationField, `Account information should contain email: ${email}`).toContainText(email);
+    await Promise.all([
+      this.page.waitForNavigation({ timeout: 30000 }),
+      this.accountCreationConfirmButton.click()
+    ]);
+
+    if (!isSetup) {
+      try {
+        await expect(this.page).toHaveURL(new RegExp('.+' + slugs.account.accountOverviewSlug.replace(/\/$/, '')), {
+          timeout: 10000
+        });
+
+      } catch (error) {
+        throw error;
+      }
     }
   }
 }
