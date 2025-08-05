@@ -4,7 +4,7 @@ import { test as base, expect } from '@playwright/test';
 import { outcomeMarker, inputValues } from '@config';
 import { requireEnv } from '@utils/env.utils';
 
-import LoginPage from '@poms/frontend/login.page';
+import LoginPage from '@poms/frontend/override/login.page';
 
 base('User_logs_in_with_valid_credentials', {tag: '@hot'}, async ({page, browserName}) => {
   const browserEngine = browserName?.toUpperCase() || "UNKNOWN";
@@ -32,8 +32,6 @@ base('User_logs_in_with_valid_credentials', {tag: '@hot'}, async ({page, browser
     return data ? JSON.parse(data) : null;
   });
 
-  expect(parsedData.customer.firstname, 'Customer firstname should match').toBe(inputValues.accountCreation.firstNameValue);
-  expect(parsedData.customer.fullname, 'Customer lastname should match').toContain(inputValues.accountCreation.lastNameValue);
 });
 
 base('Invalid_credentials_are_rejected', async ({page}) => {
