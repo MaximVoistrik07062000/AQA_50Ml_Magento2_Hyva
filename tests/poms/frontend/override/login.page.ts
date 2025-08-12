@@ -20,7 +20,7 @@ class LoginPage {
     await this.page.goto(slugs.account.loginSlug);
     await this.loginEmailField.fill(email);
     await this.loginPasswordField.fill(password);
-    await this.loginButton.click();
+    await this.loginButton.press("Enter");
     await this.page.waitForLoadState('networkidle');
   }
 
