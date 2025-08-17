@@ -4,7 +4,7 @@ import { test as base, expect } from '@playwright/test';
 import { outcomeMarker, inputValues } from '@config';
 import { requireEnv } from '@utils/env.utils';
 
-import LoginPage from '@poms/frontend/login.page';
+import LoginPage from '@poms/frontend/override/login.page';
 
 base('User_logs_in_with_valid_credentials', {tag: '@hot'}, async ({page, browserName}) => {
   const browserEngine = browserName?.toUpperCase() || "UNKNOWN";
@@ -31,6 +31,8 @@ base('User_logs_in_with_valid_credentials', {tag: '@hot'}, async ({page, browser
     const data = localStorage.getItem('mage-cache-storage');
     return data ? JSON.parse(data) : null;
   });
+
+  expect(parsedData.customer.data_id, 'Customer data_id should exist').toBeTruthy();
 });
 
 base('Invalid_credentials_are_rejected', async ({page}) => {

@@ -2,8 +2,8 @@
   "accountCreation": {
     "emailHandleValue":"test-user",
     "emailHostValue": "gmail.com",
-    "firstNameValue": "John",
-    "lastNameValue": "Doe"
+    "firstNameValue": "maxim",
+    "lastNameValue": "test"
   },
   "adminLogins": {
     "allowMultipleLogins": "Yes"
