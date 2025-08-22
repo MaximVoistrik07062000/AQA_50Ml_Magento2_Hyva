@@ -1,6 +1,6 @@
 {
   "accountCreation": {
-    "createAccountButtonLabel": "Create an Account"
+    "createAccountButtonLabel": "Crear una cuenta"
   },
   "accountDashboard": {
     "accountDashboardTitleLabel": "Account Information",
@@ -132,15 +132,15 @@
   },
   "credentials": {
     "currentPasswordFieldLabel": "Current Password",
-    "emailFieldLabel": "Email",
+    "emailFieldLabel": "Correo electrónico",
     "emailCheckoutFieldLabel": "Email address",
     "loginButtonLabel": "Sign In",
     "nameFieldLabel": "Nombre",
     "lastNameFieldLabel": "Apellidos",
     "newPasswordConfirmFieldLabel": "Confirm New Password",
     "newPasswordFieldLabel": "New Password",
-    "passwordConfirmFieldLabel": "Confirm Password",
-    "passwordFieldLabel": "Password"
+    "passwordConfirmFieldLabel": "Confirmar contraseña",
+    "passwordFieldLabel": "Contraseña"
   },
   "general": {
     "addToCartLabel": "Add to Cart",
@@ -198,8 +198,8 @@
   "personalInformation": {
     "changePasswordCheckLabel": "Change Password",
     "changeEmailCheckLabel": "Change Email",
-    "firstNameLabel": "First Name",
-    "lastNameLabel": "Last Name"
+    "firstNameLabel": "firstname",
+    "lastNameLabel": "lastname"
   },
   "wishListPage": {
     "wishListItemGridLabel": "#wishlist-view-form",
