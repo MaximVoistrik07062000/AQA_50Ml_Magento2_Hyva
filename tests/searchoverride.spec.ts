@@ -6,7 +6,7 @@ import { UIReference, outcomeMarker, inputValues, slugs } from '@config';
 import SearchPage from '@poms/frontend/override/search.page';
 
 test.describe('Search functionality', () => {
-  test('Search_query_returns_multiple_results', async ({ page }) => {
+  test('Search_query_returns_multiple_results',  { tag: ['@override'] }, async ({ page }) => {
     await page.goto('');
     const searchPage = new SearchPage(page);
     await searchPage.search(inputValues.search.queryMultipleResults);
@@ -16,7 +16,7 @@ test.describe('Search functionality', () => {
     expect(resultCount).toBeGreaterThan(1);
   });
 
-  test('User_can_find_a_specific_product_and_navigate_to_its_page', async ({ page }) => {
+  test('User_can_find_a_specific_product_and_navigate_to_its_page', { tag: ['@override'] }, async ({ page }) => {
     await page.goto('');
     const searchPage = new SearchPage(page);
     await searchPage.search(inputValues.search.querySpecificProduct);
@@ -29,7 +29,7 @@ test.describe('Search functionality', () => {
     await expect(page).toHaveURL(/darling-la-dolce-vita-face-body-suncare-kit/);
   });
 
-  test('No_results_message_is_shown_for_unknown_query', async ({ page }) => {
+  test('No_results_message_is_shown_for_unknown_query', { tag: ['@override'] }, async ({ page }) => {
     await page.goto('');
     const searchPage = new SearchPage(page);
     await searchPage.search(inputValues.search.queryNoResults);

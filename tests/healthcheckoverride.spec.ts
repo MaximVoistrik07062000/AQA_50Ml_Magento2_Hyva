@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 import { UIReference, slugs } from '@config';
 
 test.describe('Page health checks', () => {
-    test('Homepage_returns_200', { tag: ['@smoke', '@cold'] }, async ({page}) => {
+    test('Homepage_returns_200', { tag: ['@smoke', '@cold', '@override'] }, async ({page}) => {
         const homepageURL = process.env.PLAYWRIGHT_BASE_URL || process.env.BASE_URL;
         if (!homepageURL) {
             throw new Error("PLAYWRIGHT_BASE_URL has not been defined in the .env file.");
@@ -17,7 +17,7 @@ test.describe('Page health checks', () => {
 
     });
 
-    test('Plp_returns_200', { tag: ['@smoke', '@cold'] }, async ({page}) => {
+    test('Plp_returns_200', { tag: ['@smoke', '@cold', '@override'] }, async ({page}) => {
         const plpResponsePromise = page.waitForResponse(slugs.categoryPage.categorySlug);
         await page.goto(slugs.categoryPage.categorySlug);
         const plpResponse = await plpResponsePromise;
@@ -29,7 +29,7 @@ test.describe('Page health checks', () => {
         ).toBeVisible();
     });
 
-    test('Pdp_returns_200', { tag: ['@smoke', '@cold'] }, async ({page}) => {
+    test('Pdp_returns_200', { tag: ['@smoke', '@cold', '@override'] }, async ({page}) => {
         const pdpResponse = await page.goto(slugs.productpage.simpleProductSlug);
         expect(pdpResponse.status(), 'PDP should return 200').toBe(200);
 
@@ -39,7 +39,7 @@ test.describe('Page health checks', () => {
         ).toBeVisible();
     });
 
-    test('Checkout_returns_200', { tag: ['@smoke', '@cold'] }, async ({page}) => {
+    test('Checkout_returns_200', { tag: ['@smoke', '@cold', '@override'] }, async ({page}) => {
         const responsePromise = page.waitForResponse(slugs.checkout.checkoutSlug);
 
         await page.goto(slugs.checkout.checkoutSlug);
