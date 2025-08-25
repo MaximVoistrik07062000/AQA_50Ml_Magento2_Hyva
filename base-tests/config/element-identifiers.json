@@ -31,10 +31,10 @@
     "saveSubscriptionsButton": "Save"
   },
   "productPage": {
-    "addToCartButtonLocator": "shopping-cart Add to Cart",
+    "addToCartButtonLocator": "Añadir al carrito",
     "addToCompareButtonLabel": "Add to Compare",
     "addToWishlistButtonLabel": "Add to Wish List",
-    "simpleProductTitle": "Push It Messenger Bag",
+    "simpleProductTitle": "La Dolce Vita Face & Body Suncare Kit",
     "secondSimpleProducTitle": "Aim Analog Watch",
     "simpleProductPrice": ".final-price .price-wrapper .price",
     "configurableProductTitle": "Inez Full Zip Jacket",
@@ -50,7 +50,7 @@
   },
   "categoryPage":{
     "activeViewLocator": ".active",
-    "categoryPageTitleText": "Women",
+    "categoryPageTitleText": "Cuidado corporal",
     "firstFilterOptionLocator": "#filter-option-0-content",
     "itemsOnPageAmountLocator": ".toolbar-number",
     "itemsPerPageButtonLabel": "Show items per page",
@@ -96,14 +96,14 @@
     "openCartButtonLabelCont": "item",
     "openCartButtonLabelContMultiple": "items",
     "openDiscountFormLabel": "Apply Discount Code",
-    "paymentOptionCheckLabel": "Check / Money order Free",
+    "paymentOptionCheckLabel": "Pago mediante transferencia bancaria",
     "paymentOptionCreditCardLabel": "Credit Card",
     "paymentOptionPaypalLabel": "PayPal",
     "creditCardNumberLabel": "Credit Card Number",
     "creditCardExpiryLabel": "Expiration Date",
     "creditCardCVVLabel": "Card Verification Number",
     "creditCardNameLabel": "Name on Card",
-    "placeOrderButtonLabel": "Place Order",
+    "placeOrderButtonLabel": "Realizar pedido",
     "remove": "Remove",
     "shippingAddressRadioLocator": "#shipping-details input[type='radio']",
     "shippingMethodFixedLabel": "Fixed"
