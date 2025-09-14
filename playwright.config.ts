@@ -64,6 +64,10 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'https://hyva-demo.elgentos.io/',
+    httpCredentials: {
+      username: process.env.BASIC_AUTH_USERNAME,
+      password: process.env.BASIC_AUTH_PASSWORD,
+    },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
