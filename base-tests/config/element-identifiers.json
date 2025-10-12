@@ -3,7 +3,7 @@
     "createAccountButtonLabel": "Crear una cuenta"
   },
   "accountDashboard": {
-    "accountDashboardTitleLabel": "Account Information",
+    "accountDashboardTitleLabel": "Información de la cuenta",
     "accountSideBarLabel": "Sidebar Main",
     "addAddressButtonLabel": "ADD NEW ADDRESS",
     "addressBookArea": ".block-addresses-list",
@@ -145,7 +145,7 @@
     "passwordFieldLabel": "Contraseña"
   },
   "general": {
-    "addToCartLabel": "Add to Cart",
+    "addToCartLabel": "Añadir al carrito",
     "closeMessageLabel": "Close message",
     "errorMessageLocator": "div.message.error",
     "errorMessageRequiredFieldText": "This is a required field",
@@ -174,9 +174,9 @@
     "usernameFieldLabel": "Username"
   },
   "mainMenu": {
-    "miniCartLabel": "Toggle minicart",
-    "myAccountButtonLabel": "My Account",
-    "myAccountLogoutItem": "Sign Out"
+    "miniCartLabel": "Carrito",
+    "myAccountButtonLabel": "Mi cuenta",
+    "myAccountLogoutItem": "Cerrar sesión"
   },
   "miniCart": {
     "checkOutButtonLabel": "Checkout",
