@@ -32,18 +32,18 @@ test.beforeEach(async ({ page, browserName }) => {
  *    @and I click the Logout option
  *  @then I should see a message confirming I am logged out
  */
-test('User_logs_out', { tag: ['@mainmenu', '@hot'] }, async ({page}) => {
+test('User_logs_out', { tag: ['@mainmenu', '@hot', '@override'] }, async ({page}) => {
     const mainMenu = new MainMenuPage(page);
     await mainMenu.logout();
 });
 
 
-test('Navigate_to_account_page', { tag: ['@mainmenu', '@hot'] }, async ({page}) => {
+test('Navigate_to_account_page', { tag: ['@mainmenu', '@hot', '@override'] }, async ({page}) => {
     const mainMenu = new MainMenuPage(page);
     await mainMenu.gotoMyAccount();
 });
 
-test('Add_simple_product_to_cart', { tag: ['@mainmenu', '@cold'] }, async ({page}, testInfo) => {
+test('Add_simple_product_to_cart', { tag: ['@mainmenu', '@cold', '@override'] }, async ({page}, testInfo) => {
     testInfo.annotations.push({ type: 'WARNING (FIREFOX)', description: `The minicart icon does not lose its aria-disabled=true flag when the first product is added. This prevents Playwright from clicking it. A fix will be added in the future.`});
 
     const productPage = new ProductPage(page);
