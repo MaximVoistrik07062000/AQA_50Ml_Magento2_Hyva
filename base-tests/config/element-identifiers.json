@@ -33,7 +33,7 @@
   "productPage": {
     "addToCartButtonLocator": "Añadir al carrito",
     "addToCompareButtonLabel": "Add to Compare",
-    "addToWishlistButtonLabel": "Add to Wish List",
+    "addToWishlistButtonLabel": "Añadir a la Lista de Deseos",
     "simpleProductTitle": "La Dolce Vita Face & Body Suncare Kit",
     "secondSimpleProducTitle": "Aim Analog Watch",
     "simpleProductPrice": ".final-price .price-wrapper .price",

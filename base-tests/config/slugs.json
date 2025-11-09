@@ -33,6 +33,6 @@
     "resultsSlug": "/catalogsearch/result/"
   },
   "wishlist": {
-    "wishListRegex": ".*wishlist.*"
+    "wishListUrl": "/wishlist"
   }
 }
