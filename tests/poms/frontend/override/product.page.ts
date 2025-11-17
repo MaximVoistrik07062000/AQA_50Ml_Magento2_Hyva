@@ -1,7 +1,7 @@
 // @ts-check
 
-import { expect, type Locator, type Page } from '@playwright/test';
-import { UIReference, outcomeMarker, slugs } from '@config';
+import {expect, type Locator, type Page} from '@playwright/test';
+import {UIReference, outcomeMarker, slugs} from '@config';
 
 class ProductPage {
     readonly page: Page;
@@ -13,16 +13,16 @@ class ProductPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.addToCartButton = page.getByRole('button', { name: UIReference.productPage.addToCartButtonLocator });
-        this.addToCompareButton = page.getByLabel(UIReference.productPage.addToCompareButtonLabel, { exact: true });
-        this.addToWishlistButton = page.getByLabel(UIReference.productPage.addToWishlistButtonLabel, { exact: true });
+        this.addToCartButton = page.getByRole('button', {name: UIReference.productPage.addToCartButtonLocator});
+        this.addToCompareButton = page.getByLabel(UIReference.productPage.addToCompareButtonLabel, {exact: true});
+        this.addToWishlistButton = page.getByLabel(UIReference.productPage.addToWishlistButtonLabel, {exact: true});
     }
 
     // ==============================================
     // Productpage-related methods
     // ==============================================
 
-    async addProductToCompare(product:string, url: string){
+    async addProductToCompare(product: string, url: string) {
         let productAddedNotification = `${outcomeMarker.productPage.simpleProductAddedNotification} product`;
         const successMessage = this.page.locator(UIReference.general.successMessageLocator);
 
@@ -37,7 +37,7 @@ class ProductPage {
         await expect(this.page.getByRole('cell', {name: product}).getByText(product, {exact: true})).toBeVisible();
     }
 
-    async addProductToWishlist(product:string, url: string){
+    async addProductToWishlist(product: string, url: string) {
         let addedToWishlistNotification = `${product} ${outcomeMarker.wishListPage.wishListAddedNotification}`;
         await this.page.goto(url);
         await this.addToWishlistButton.click();
@@ -47,11 +47,11 @@ class ProductPage {
 
         let productNameInWishlist = this.page.locator('#wishlist-view-form')
             .locator('.product-item-link')
-            .filter({ hasText: product });
+            .filter({hasText: product});
         await expect(productNameInWishlist).toContainText(product);
     }
 
-    async leaveProductReview(product:string, url: string){
+    async leaveProductReview(product: string, url: string) {
         await this.page.goto(url);
 
         //TODO: Uncomment this and fix test once website is fixed
@@ -69,7 +69,7 @@ class ProductPage {
         */
     }
 
-    async openLightboxAndScrollThrough(url: string){
+    async openLightboxAndScrollThrough(url: string) {
         await this.page.goto(url);
         let fullScreenOpener = this.page.getByLabel(UIReference.productPage.fullScreenOpenLabel);
         let fullScreenCloser = this.page.getByLabel(UIReference.productPage.fullScreenCloseLabel);
@@ -125,10 +125,10 @@ class ProductPage {
     async addSimpleProductToCart(product: string, url: string, quantity?: string) {
 
         await this.page.goto(url);
-        this.simpleProductTitle = this.page.getByRole('heading', {name: product, exact:true});
+        this.simpleProductTitle = this.page.getByRole('heading', {name: product, exact: true});
         expect(await this.simpleProductTitle.innerText()).toEqual(product);
 
-        if(quantity){
+        if (quantity) {
             // set quantity
             await this.page.getByLabel(UIReference.productPage.quantityFieldLabel).fill('2');
         }
@@ -136,12 +136,12 @@ class ProductPage {
         await this.addToCartButton.click();
 
         await expect(this.page.locator(UIReference.general.messageLocator)).toBeVisible();
-        return ;
+        return;
     }
 
-    async addConfigurableProductToCart(product: string, url:string, quantity?:string){
+    async addConfigurableProductToCart(product: string, url: string, quantity?: string) {
         await this.page.goto(url);
-        this.configurableProductTitle = this.page.getByRole('heading', {name: product, exact:true});
+        this.configurableProductTitle = this.page.getByRole('heading', {name: product, exact: true});
         let productAddedNotification = `${outcomeMarker.productPage.simpleProductAddedNotification} ${product}`;
         const productOptions = this.page.locator(UIReference.productPage.configurableProductOptionForm);
 
@@ -150,7 +150,7 @@ class ProductPage {
             await option.locator(UIReference.productPage.configurableProductOptionValue).first().check();
         }
 
-        if(quantity){
+        if (quantity) {
             // set quantity
             await this.page.getByLabel(UIReference.productPage.quantityFieldLabel).fill('2');
         }

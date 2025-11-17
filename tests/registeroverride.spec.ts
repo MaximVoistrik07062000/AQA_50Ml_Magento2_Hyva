@@ -2,13 +2,13 @@
 
 import {test} from '@playwright/test';
 import {faker} from '@faker-js/faker';
-import { inputValues } from '@config';
+import {inputValues} from '@config';
 
 import RegisterPage from '@poms/frontend/override/register.page';
-import { requireEnv } from '@utils/env.utils';
+import {requireEnv} from '@utils/env.utils';
 
 // Reset storageState to ensure we're not logged in before running these tests.
-test.use({ storageState: { cookies: [], origins: [] } });
+test.use({storageState: {cookies: [], origins: []}});
 
 /**
  * @feature Magento 2 Account Creation
@@ -19,26 +19,29 @@ test.use({ storageState: { cookies: [], origins: [] } });
  *  @then I click the 'Create account' button
  *  @then I should see a messsage confirming my account was created
  */
-test('User_registers_an_account', { tag: ['@setup', '@hot', '@override'] }, async ({page, browserName}, testInfo) => {
-  const registerPage = new RegisterPage(page);
+test('User_registers_an_account', {tag: ['@setup', '@hot', '@override']}, async ({page, browserName}, testInfo) => {
+    const registerPage = new RegisterPage(page);
 
-  // Retrieve desired password from .env file
-  const existingAccountPassword = requireEnv('MAGENTO_EXISTING_ACCOUNT_PASSWORD');
-  var firstName = faker.person.firstName();
-  var lastName = faker.person.lastName();
+    // Retrieve desired password from .env file
+    const existingAccountPassword = requireEnv('MAGENTO_EXISTING_ACCOUNT_PASSWORD');
+    var firstName = faker.person.firstName();
+    var lastName = faker.person.lastName();
 
-  const browserEngine = browserName?.toUpperCase() || "UNKNOWN";
-  let randomNumber = Math.floor(Math.random() * 100);
-  let emailHandle = inputValues.accountCreation.emailHandleValue;
-  let emailHost = inputValues.accountCreation.emailHostValue;
-  const accountEmail = `${emailHandle}${randomNumber}-${browserEngine}@${emailHost}`;
-  //const accountEmail = process.env[`MAGENTO_EXISTING_ACCOUNT_EMAIL_${browserEngine}`];
+    const browserEngine = browserName?.toUpperCase() || "UNKNOWN";
+    let randomNumber = Math.floor(Math.random() * 100);
+    let emailHandle = inputValues.accountCreation.emailHandleValue;
+    let emailHost = inputValues.accountCreation.emailHostValue;
+    const accountEmail = `${emailHandle}${randomNumber}-${browserEngine}@${emailHost}`;
+    //const accountEmail = process.env[`MAGENTO_EXISTING_ACCOUNT_EMAIL_${browserEngine}`];
 
-  if (!accountEmail) {
-    throw new Error(`Generated account email is invalid.`);
-  }
-  // end of browserNameEmailSection
+    if (!accountEmail) {
+        throw new Error(`Generated account email is invalid.`);
+    }
+    // end of browserNameEmailSection
 
-  await registerPage.createNewAccount(firstName, lastName, accountEmail, existingAccountPassword);
-  testInfo.annotations.push({ type: 'Notification: account created!', description: `Credentials used: ${accountEmail}, password: ${existingAccountPassword}` });
+    await registerPage.createNewAccount(firstName, lastName, accountEmail, existingAccountPassword);
+    testInfo.annotations.push({
+        type: 'Notification: account created!',
+        description: `Credentials used: ${accountEmail}, password: ${existingAccountPassword}`
+    });
 });

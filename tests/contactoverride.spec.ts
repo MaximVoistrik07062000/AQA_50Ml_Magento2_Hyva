@@ -1,6 +1,6 @@
 // @ts-check
 
-import { test } from '@playwright/test';
+import {test} from '@playwright/test';
 import ContactPage from '@poms/frontend/override/contact.page';
 
 /**
@@ -13,7 +13,7 @@ import ContactPage from '@poms/frontend/override/contact.page';
  *  @then I should see a notification my message has been sent
  *  @and the fields should be empty again.
  */
-test('Send_message_through_contact_form',{ tag: ['@contact-form', '@cold', '@override']}, async ({page}) => {
-  const contactPage = new ContactPage(page);
-  await contactPage.fillOutForm();
+test('Send_message_through_contact_form', {tag: ['@contact-form', '@cold', '@override']}, async ({page}) => {
+    const contactPage = new ContactPage(page);
+    await contactPage.fillOutForm();
 });
