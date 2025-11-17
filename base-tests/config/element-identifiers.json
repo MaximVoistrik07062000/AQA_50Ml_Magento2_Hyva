@@ -16,14 +16,14 @@
   },
   "newAddress": {
     "addNewAddressTitle": "Add New Address",
-    "companyNameLabel": "Company",
-    "phoneNumberLabel": "Phone Number",
-    "streetAddressLabel": "Street Address",
-    "zipCodeLabel": "Zip/Postal Code",
-    "cityNameLabel": "City",
-    "countryLabel": "Country",
-    "provinceSelectLabel": "State/Province",
-    "provinceSelectFilterLabel": "Please select a region, state or province.",
+    "companyNameLabel": "Empresa (opcional)",
+    "phoneNumberLabel": "Número de teléfono",
+    "streetAddressLabel": "Dirección",
+    "zipCodeLabel": "Código Postal",
+    "cityNameLabel": "Ciudad",
+    "countryLabel": "País",
+    "provinceSelectLabel": "Estado/provincia",
+    "provinceSelectFilterLabel": "Por favor seleccione región, estado o provincia.",
     "saveAdressButton": "Save Address"
   },
   "newsletterSubscriptions": {
@@ -34,7 +34,7 @@
     "addToCartButtonLocator": "Añadir al carrito",
     "addToCompareButtonLabel": "Add to Compare",
     "addToWishlistButtonLabel": "Añadir a la Lista de Deseos",
-    "simpleProductTitle": "La Dolce Vita Face & Body Suncare Kit",
+    "simpleProductTitle": "Spray Medium Protection SPF 15",
     "secondSimpleProducTitle": "Aim Analog Watch",
     "simpleProductPrice": ".final-price .price-wrapper .price",
     "configurableProductTitle": "Inez Full Zip Jacket",
@@ -108,7 +108,8 @@
     "placeOrderButtonLabel": "Realizar pedido",
     "remove": "Remove",
     "shippingAddressRadioLocator": "#shipping-details input[type='radio']",
-    "shippingMethodFixedLabel": "Fixed"
+    "shippingMethodFixedLabel": "Fixed",
+    "shippingAddressSectionTitle": "Dirección de Envío"
   },
   "comparePage": {
     "removeCompareLabel": "Remove Product",
@@ -135,7 +136,7 @@
   "credentials": {
     "currentPasswordFieldLabel": "Current Password",
     "emailFieldLabel": "Correo electrónico",
-    "emailCheckoutFieldLabel": "Email address",
+    "emailCheckoutFieldLabel": "Dirección de correo electrónico",
     "loginButtonLabel": "Sign In",
     "nameFieldLabel": "Nombre",
     "lastNameFieldLabel": "Apellidos",
@@ -146,7 +147,7 @@
   },
   "general": {
     "addToCartLabel": "Añadir al carrito",
-    "closeMessageLabel": "Close message",
+    "closeMessageLabel": "Cerrar",
     "errorMessageLocator": "div.message.error",
     "errorMessageRequiredFieldText": "This is a required field",
     "genericPriceLabel": "Price",
@@ -200,8 +201,8 @@
   "personalInformation": {
     "changePasswordCheckLabel": "Change Password",
     "changeEmailCheckLabel": "Change Email",
-    "firstNameLabel": "firstname",
-    "lastNameLabel": "lastname"
+    "firstNameLabel": "Nombre",
+    "lastNameLabel": "Apellidos"
   },
   "wishListPage": {
     "wishListItemGridLabel": "#wishlist-view-form",

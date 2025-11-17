@@ -25,8 +25,8 @@
     "couponAppliedNotification": "Your coupon was successfully applied",
     "couponRemovedNotification": "Your coupon was successfully removed",
     "incorrectDiscountNotification": "The coupon code isn't valid. Verify the code and try again.",
-    "orderPlacedNotification": "Thank you for your purchase!",
-    "orderPlacedNumberText": "Your order number is"
+    "orderPlacedNotification": "¡Gracias por comprar en 50 ml!",
+    "orderPlacedNumberText": "Número de pedido:"
   },
   "comparePage": {
     "productRemovedNotificationTextOne": "You removed product",
