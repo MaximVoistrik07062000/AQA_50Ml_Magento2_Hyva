@@ -12,13 +12,13 @@
   },
   "cart": {
     "cartProductChangeSlug": "/cart/configure/",
-    "cartSlug": "/checkout/cart/"
+    "cartSlug": "/checkout/cart"
   },
   "categoryPage": {
     "categorySlug": "/fragancia"
   },
   "checkout": {
-    "checkoutSlug": "/checkout/"
+    "checkoutSlug": "/checkout"
   },
   "contact": {
     "contactSlug": "/contact"

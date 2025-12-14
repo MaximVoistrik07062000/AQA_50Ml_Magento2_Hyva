@@ -36,7 +36,7 @@ class MainMenuPage {
         const amountInCart = await cartAmountBubble.innerText();
 
         await this.mainMenuMiniCartButton.waitFor();
-        await this.mainMenuMiniCartButton.click();
+        await this.mainMenuMiniCartButton.click({ force: true });
 
         let miniCartDrawer = this.page.locator('[aria-label="Mi cesta"]');
 
